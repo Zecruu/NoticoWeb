@@ -18,7 +18,16 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error: "Invalid credentials",
-          debug: { emailReceived: !!email, emailMatch, envSet, secretMatch },
+          debug: {
+            emailReceived: !!email,
+            emailMatch,
+            envSet,
+            secretMatch,
+            envLength: process.env.ADMIN_SECRET?.length,
+            inputLength: secret.length,
+            envFirst3: process.env.ADMIN_SECRET?.slice(0, 3),
+            inputFirst3: secret.slice(0, 3),
+          },
         },
         { status: 401 }
       );
