@@ -13,17 +13,17 @@ import { Lock, Mail } from "lucide-react";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
-  const [secret, setSecret] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAdminAuth();
   const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email.trim() || !secret.trim()) return;
+    if (!email.trim() || !password.trim()) return;
 
     setLoading(true);
-    const success = await login(email, secret);
+    const success = await login(email, password);
     setLoading(false);
 
     if (success) {
@@ -61,15 +61,15 @@ export default function AdminLoginPage() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="secret">Admin Secret</Label>
+              <Label htmlFor="password">Password</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
-                  id="secret"
+                  id="password"
                   type="password"
-                  placeholder="Enter admin secret"
-                  value={secret}
-                  onChange={(e) => setSecret(e.target.value)}
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="pl-10"
                 />
               </div>

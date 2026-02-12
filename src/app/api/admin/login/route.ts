@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
+import dbConnect from "@/lib/mongodb";
+import User from "@/models/User";
 
 const ADMIN_EMAILS = ["mnkzecru@gmail.com"];
 
@@ -6,38 +9,32 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const email = body.email || "";
-    const secret = body.secret || "";
+    const { email, password } = await request.json();
 
-    const envSet = !!process.env.ADMIN_SECRET;
-    const emailMatch = ADMIN_EMAILS.includes(email.toLowerCase().trim());
-    const secretMatch = secret === process.env.ADMIN_SECRET;
-
-    if (!emailMatch || !secretMatch) {
-      return NextResponse.json(
-        {
-          error: "Invalid credentials",
-          debug: {
-            emailReceived: !!email,
-            emailMatch,
-            envSet,
-            secretMatch,
-            envLength: process.env.ADMIN_SECRET?.length,
-            inputLength: secret.length,
-            envFirst3: process.env.ADMIN_SECRET?.slice(0, 3),
-            inputFirst3: secret.slice(0, 3),
-          },
-        },
-        { status: 401 }
-      );
+    if (!email || !password) {
+      return NextResponse.json({ error: "Email and password required" }, { status: 400 });
     }
 
-    return NextResponse.json({ token: process.env.ADMIN_SECRET });
-  } catch (err) {
-    return NextResponse.json(
-      { error: "Invalid request", detail: String(err) },
-      { status: 400 }
-    );
+    if (!ADMIN_EMAILS.includes(email.toLowerCase().trim())) {
+      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+    }
+
+    await dbConnect();
+
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
+
+    if (!user || !user.hashedPassword) {
+      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+    }
+
+    const isValid = await bcrypt.compare(password, user.hashedPassword);
+
+    if (!isValid) {
+      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+    }
+
+    return NextResponse.json({ token: user._id.toString() });
+  } catch {
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
