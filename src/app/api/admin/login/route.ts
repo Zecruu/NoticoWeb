@@ -6,6 +6,8 @@ export async function POST(request: Request) {
   try {
     const { email, secret } = await request.json();
 
+    console.log("[admin-login] email:", email, "| ADMIN_SECRET set:", !!process.env.ADMIN_SECRET, "| secret match:", secret === process.env.ADMIN_SECRET);
+
     if (!email || !ADMIN_EMAILS.includes(email.toLowerCase().trim())) {
       return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
