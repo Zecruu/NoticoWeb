@@ -97,7 +97,7 @@ export default function LandingPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="gap-2">
-                <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.13/Notico-Max-Setup-1.0.13.exe">
+                <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.18/Notico-Max-Setup-1.0.18.exe">
                   <Download className="h-5 w-5" />
                   Download for Windows
                 </a>
@@ -223,7 +223,7 @@ export default function LandingPage() {
             Download Notico Max for free and start organizing your notes, bookmarks, and reminders today.
           </p>
           <Button asChild size="lg" className="gap-2">
-            <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.13/Notico-Max-Setup-1.0.13.exe">
+            <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.18/Notico-Max-Setup-1.0.18.exe">
               <Download className="h-5 w-5" />
               Download for Windows
             </a>
