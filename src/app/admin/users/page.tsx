@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { adminFetch } from "@/lib/admin-fetch";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -13,7 +14,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { toast } from "sonner";
+import { Search, ChevronLeft, ChevronRight, Key } from "lucide-react";
 
 interface UserRow {
   _id: string;
@@ -31,6 +41,10 @@ export default function AdminUsersPage() {
   const [search, setSearch] = useState("");
   const [tier, setTier] = useState("all");
   const [searchInput, setSearchInput] = useState("");
+  const [passwordUser, setPasswordUser] = useState<UserRow | null>(null);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [saving, setSaving] = useState(false);
 
   const fetchUsers = useCallback(async () => {
     const params = new URLSearchParams();
@@ -61,6 +75,37 @@ export default function AdminUsersPage() {
     }, 300);
     return () => clearTimeout(timeout);
   }, [searchInput]);
+
+  async function handleResetPassword() {
+    if (!passwordUser) return;
+    if (newPassword.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+    setSaving(true);
+    try {
+      const res = await adminFetch(`/api/admin/users/${passwordUser._id}/reset-password`, {
+        method: "POST",
+        body: JSON.stringify({ newPassword }),
+      });
+      if (res.ok) {
+        toast.success(`Password updated for ${passwordUser.name}`);
+        setPasswordUser(null);
+        setNewPassword("");
+        setConfirmPassword("");
+      } else {
+        const data = await res.json();
+        toast.error(data.error || "Failed to reset password");
+      }
+    } catch {
+      toast.error("Failed to reset password");
+    }
+    setSaving(false);
+  }
 
   return (
     <div className="space-y-6">
@@ -105,6 +150,7 @@ export default function AdminUsersPage() {
               <th className="text-left p-3 font-medium">Email</th>
               <th className="text-left p-3 font-medium">Tier</th>
               <th className="text-left p-3 font-medium">Created</th>
+              <th className="text-right p-3 font-medium">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -130,11 +176,25 @@ export default function AdminUsersPage() {
                 <td className="p-3 text-muted-foreground">
                   {new Date(user.createdAt).toLocaleDateString()}
                 </td>
+                <td className="p-3 text-right">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="gap-1.5"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setPasswordUser(user);
+                    }}
+                  >
+                    <Key className="h-3.5 w-3.5" />
+                    Password
+                  </Button>
+                </td>
               </tr>
             ))}
             {users.length === 0 && (
               <tr>
-                <td colSpan={4} className="p-8 text-center text-muted-foreground">
+                <td colSpan={5} className="p-8 text-center text-muted-foreground">
                   No users found
                 </td>
               </tr>
@@ -168,6 +228,55 @@ export default function AdminUsersPage() {
           </Button>
         </div>
       )}
+      <Dialog
+        open={!!passwordUser}
+        onOpenChange={(open) => {
+          if (!open) {
+            setPasswordUser(null);
+            setNewPassword("");
+            setConfirmPassword("");
+          }
+        }}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Change Password</DialogTitle>
+            <DialogDescription>
+              Set a new password for <strong>{passwordUser?.name}</strong> ({passwordUser?.email})
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-2">
+            <div className="space-y-2">
+              <Label htmlFor="newPassword">New Password</Label>
+              <Input
+                id="newPassword"
+                type="password"
+                placeholder="Min 6 characters"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm new password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setPasswordUser(null)}>
+              Cancel
+            </Button>
+            <Button onClick={handleResetPassword} disabled={saving || !newPassword}>
+              {saving ? "Saving..." : "Change Password"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

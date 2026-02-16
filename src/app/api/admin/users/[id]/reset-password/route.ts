@@ -28,13 +28,6 @@ export async function POST(
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  if (!user.hashedPassword) {
-    return NextResponse.json(
-      { error: "Cannot reset password for OAuth-only accounts" },
-      { status: 400 }
-    );
-  }
-
   const hashedPassword = await bcrypt.hash(newPassword, 12);
   await User.findByIdAndUpdate(id, { hashedPassword });
 
