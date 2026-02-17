@@ -32,7 +32,7 @@ export default function DownloadPage() {
               <p className="text-xs text-muted-foreground">Windows 10+</p>
             </div>
             <Button asChild className="w-full gap-2">
-              <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.20/Notico-Max-Setup-1.0.20.exe">
+              <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.21/Notico-Max-Setup-1.0.21.exe">
                 <Download className="h-4 w-4" />
                 Download .exe
               </a>
