@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, X, Download } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -59,11 +58,8 @@ export default function PricingPage() {
                 <span className="text-muted-foreground">/month</span>
               </div>
             </div>
-            <Button asChild variant="outline" className="w-full" size="lg">
-              <Link href="/download">
-                <Download className="mr-2 h-4 w-4" />
-                Download Free
-              </Link>
+            <Button variant="outline" className="w-full" size="lg">
+              Get Started Free
             </Button>
             <ul className="space-y-3">
               {features
@@ -94,11 +90,8 @@ export default function PricingPage() {
                 <span className="text-muted-foreground">/month</span>
               </div>
             </div>
-            <Button asChild className="w-full" size="lg">
-              <Link href="/download">
-                <Download className="mr-2 h-4 w-4" />
-                Download & Upgrade
-              </Link>
+            <Button className="w-full" size="lg">
+              Get Started
             </Button>
             <ul className="space-y-3">
               {features

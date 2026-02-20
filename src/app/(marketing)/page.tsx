@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  Download,
   StickyNote,
   Globe,
   Bell,
@@ -95,20 +94,12 @@ export default function LandingPage() {
                 Everything you need to organize your life — in one powerful desktop app.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="gap-2">
-                <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.21/Notico-Max-Setup-1.0.21.exe">
-                  <Download className="h-5 w-5" />
-                  Download for Windows
-                </a>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="gap-2">
-                <Link href="/pricing">
-                  View Pricing
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+            <Button asChild size="lg" className="gap-2">
+              <Link href="/pricing">
+                View Pricing
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -171,7 +162,7 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <Button asChild variant="outline" className="w-full">
-                  <Link href="/download">Download Free</Link>
+                  <Link href="/pricing">Learn More</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -198,7 +189,7 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <Button asChild className="w-full">
-                  <Link href="/download">Get Started</Link>
+                  <Link href="/pricing">Get Started</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -215,22 +206,19 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Download CTA */}
+      {/* CTA */}
       <section className="border-t py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-6 text-center space-y-6">
           <h2 className="text-3xl font-bold">Ready to get started?</h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Download Notico Max for free and start organizing your notes, bookmarks, and reminders today.
+            Start organizing your notes, bookmarks, and reminders today with Notico Max.
           </p>
           <Button asChild size="lg" className="gap-2">
-            <a href="https://github.com/Zecruu/NoticoMax/releases/download/v1.0.21/Notico-Max-Setup-1.0.21.exe">
-              <Download className="h-5 w-5" />
-              Download for Windows
-            </a>
+            <Link href="/pricing">
+              View Pricing
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </Button>
-          <p className="text-xs text-muted-foreground">
-            Windows 10+ required. macOS and Linux coming soon.
-          </p>
         </div>
       </section>
     </>

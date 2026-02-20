@@ -3,8 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
 
 export function Navbar() {
   return (
@@ -22,19 +20,10 @@ export function Navbar() {
           <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Pricing
           </Link>
-          <Link href="/download" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Download
-          </Link>
         </nav>
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button asChild size="sm" className="hidden sm:flex">
-            <Link href="/download">
-              <Download className="mr-2 h-4 w-4" />
-              Download
-            </Link>
-          </Button>
         </div>
       </div>
     </header>

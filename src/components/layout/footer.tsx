@@ -25,9 +25,6 @@ export function Footer() {
               <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </Link>
-              <Link href="/download" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Download
-              </Link>
             </div>
           </div>
 
