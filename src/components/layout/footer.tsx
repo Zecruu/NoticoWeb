@@ -31,7 +31,12 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-semibold">Legal</h3>
             <div className="flex flex-col gap-2">
-              <span className="text-sm text-muted-foreground">Privacy Policy</span>
+              <Link href="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Support
+              </Link>
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Privacy Policy
+              </Link>
               <span className="text-sm text-muted-foreground">Terms of Service</span>
             </div>
           </div>

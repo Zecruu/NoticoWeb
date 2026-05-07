@@ -20,6 +20,9 @@ export function Navbar() {
           <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Pricing
           </Link>
+          <Link href="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Support
+          </Link>
         </nav>
 
         <div className="flex items-center gap-2">
