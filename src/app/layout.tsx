@@ -15,15 +15,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://noticomax.com"),
   title: {
-    default: "NOTICO MAX - Smart Productivity Hub",
-    template: "%s | NOTICO MAX",
+    default: "NoticoMax — One app for notes, money, and life admin",
+    template: "%s | NoticoMax",
   },
   description:
-    "Your smart productivity hub for notes, study tools, and seamless sync. Save notes, bookmarks, and reminders — all in one powerful desktop app.",
+    "Notes, bookmarks, reminders, locations, passwords, a household budget, and shared family folders — fully offline, synced across Windows, macOS, iOS, Android, web, and your browser.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://noticomax.com",
+    siteName: "NoticoMax",
+    title: "NoticoMax — One app for notes, money, and life admin",
+    description:
+      "Six platforms, fully offline, one account. Capture notes, budget your month, share folders with your household — replace 3-4 apps with one.",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "NoticoMax" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NoticoMax — One app for notes, money, and life admin",
+    description: "Six platforms, fully offline, one account. Replace 3-4 apps with one.",
+    images: ["/logo.png"],
   },
 };
 
