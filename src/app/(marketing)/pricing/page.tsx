@@ -17,9 +17,9 @@ const compare = [
   { name: "100 MB local storage", free: true, pro: true, family: true },
   { name: "Apple Sign-in + biometric lock", free: true, pro: true, family: true },
   { name: "Mobile ads removed", free: false, pro: true, family: true },
-  { name: "Cloud sync across all 6 platforms", free: false, pro: true, family: true },
+  { name: "Cloud sync across Windows, macOS, iOS, and web", free: false, pro: true, family: true },
   { name: "Web app access", free: false, pro: true, family: true },
-  { name: "Browser extension + PWA share target", free: false, pro: true, family: true },
+  { name: "PWA share target", free: false, pro: true, family: true },
   { name: "Claude Code + Codex CLI skill sync", free: false, pro: true, family: true },
   { name: "Public sharing (notes, quizzes)", free: false, pro: true, family: true },
   { name: "API access", free: false, pro: true, family: true },
@@ -82,9 +82,9 @@ export default function PricingPage() {
               <a href="https://app.noticomax.com/api/download/win">Get Pro</a>
             </Button>
             <ul className="space-y-2.5 text-sm">
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Cloud sync across 6 platforms</li>
+              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Cloud sync across all platforms</li>
               <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> No ads, anywhere</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Sharing, API, browser extension</li>
+              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Sharing + API access</li>
               <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Claude Code skill sync</li>
             </ul>
             <div className="border-t pt-4 space-y-2 text-sm">

@@ -17,7 +17,6 @@ import {
   Users,
   FolderOpen,
   Terminal,
-  Chrome,
   Share2,
   WifiOff,
   ShieldCheck,
@@ -35,14 +34,12 @@ const platforms = [
   { name: "Windows", icon: Monitor },
   { name: "macOS", icon: Apple },
   { name: "iOS", icon: Smartphone },
-  { name: "Android", icon: Smartphone },
   { name: "Web", icon: Globe },
-  { name: "Extension", icon: Chrome },
 ];
 
 const captureFeatures = [
   { icon: StickyNote, title: "Notes", body: "Rich text, color-coded, pinnable, tagged, foldered. Markdown when you want it, WYSIWYG when you don't." },
-  { icon: Bookmark, title: "Bookmarks", body: "Save links from anywhere — the browser extension, the share sheet on your phone, or paste straight in." },
+  { icon: Bookmark, title: "Bookmarks", body: "Save links from anywhere — the share sheet on your phone, the PWA on the web, or paste straight in." },
   { icon: Bell, title: "Reminders", body: "Daily, weekly, monthly, yearly recurring rules. Push notifications on mobile, system notifications on desktop." },
   { icon: CalendarDays, title: "Calendar view", body: "See and create reminders on a month grid. Import your Apple or Google calendar via .ics." },
   { icon: MapPin, title: "Locations", body: "Save spots with GPS + address. Opens in Apple Maps on iOS, your default map app everywhere else.", beta: true },
@@ -73,7 +70,7 @@ export default function LandingPage() {
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
                 Notes, bookmarks, reminders, locations, a household budget, and shared
-                family folders. Fully offline. Synced across <strong className="text-foreground">six platforms</strong>.
+                family folders. Fully offline. Synced across <strong className="text-foreground">Windows, macOS, iOS, and the web</strong>.
               </p>
             </div>
 
@@ -111,10 +108,10 @@ export default function LandingPage() {
           <div className="text-center space-y-2 mb-8">
             <p className="text-xs uppercase tracking-widest text-muted-foreground">One account · all your devices</p>
             <h2 className="text-2xl font-bold sm:text-3xl">
-              Six platforms. Most notes apps ship two.
+              Desktop, phone, and browser. Same account, same data.
             </h2>
           </div>
-          <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {platforms.map((p) => (
               <div
                 key={p.name}
@@ -219,13 +216,13 @@ export default function LandingPage() {
             <p className="text-muted-foreground md:text-lg leading-relaxed">
               Back up your <code className="font-mono text-foreground bg-background px-1.5 py-0.5 rounded">/skills</code> and{" "}
               <code className="font-mono text-foreground bg-background px-1.5 py-0.5 rounded">/prompts</code> to the cloud and pull them onto a new
-              machine with one command. Plus a browser extension, a PWA share target,
-              and an env-var vault that doesn't pretend developers aren't users.
+              machine with one command. Plus a PWA share target and an env-var vault
+              that doesn't pretend developers aren't users.
             </p>
             <div className="flex flex-wrap gap-2 pt-1">
               <Badge variant="outline" className="gap-1.5 py-1.5 px-3"><Terminal className="h-3.5 w-3.5" /> Claude Code + Codex CLI</Badge>
-              <Badge variant="outline" className="gap-1.5 py-1.5 px-3"><Chrome className="h-3.5 w-3.5" /> Browser extension</Badge>
               <Badge variant="outline" className="gap-1.5 py-1.5 px-3"><Share2 className="h-3.5 w-3.5" /> PWA share target</Badge>
+              <Badge variant="outline" className="gap-1.5 py-1.5 px-3"><KeyRound className="h-3.5 w-3.5" /> Env-var vault</Badge>
             </div>
           </div>
         </div>
@@ -258,7 +255,7 @@ export default function LandingPage() {
             <QualityCard
               icon={Fingerprint}
               title="Biometric lock"
-              body="Face ID and Touch ID on iOS and Android. Apple Sign-in everywhere."
+              body="Face ID and Touch ID on iOS. Apple Sign-in everywhere."
             />
             <QualityCard
               icon={RefreshCw}
@@ -294,7 +291,7 @@ export default function LandingPage() {
             </Button>
           </div>
           <p className="text-xs text-muted-foreground">
-            iOS, Android, and the web app on the <Link href="/download" className="underline underline-offset-2">downloads page</Link>.
+            iOS and the web app on the <Link href="/download" className="underline underline-offset-2">downloads page</Link>.
           </p>
         </div>
       </section>
@@ -371,9 +368,9 @@ function Pricing() {
                 <a href="https://app.noticomax.com/api/download/win">Get Pro</a>
               </Button>
               <ul className="space-y-2.5 text-sm">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Cloud sync across all six platforms</li>
+                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Cloud sync across Windows, macOS, iOS, and web</li>
                 <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> No ads, anywhere</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Sharing, API access, browser extension</li>
+                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Sharing + API access</li>
                 <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Claude Code + Codex CLI skill sync</li>
               </ul>
               <div className="border-t pt-4 space-y-2 text-sm">

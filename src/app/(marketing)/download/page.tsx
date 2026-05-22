@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { VersionBadge } from "@/components/version-badge";
-import { Download, Monitor, Apple, Smartphone, Globe, Chrome, Terminal } from "lucide-react";
+import { Download, Monitor, Apple, Smartphone, Globe, Terminal } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Download",
   description:
-    "Download NoticoMax for Windows, macOS, iOS, Android, web, or as a browser extension. Same account, same data, all six.",
+    "Download NoticoMax for Windows, macOS, iOS, or the web. Same account, same data, everywhere.",
 };
 
 export default function DownloadPage() {
@@ -17,7 +17,7 @@ export default function DownloadPage() {
       <div className="text-center space-y-4 mb-14">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Get NoticoMax</h1>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-          Six ways to install. Same account, same data, all six.
+          Windows, macOS, iOS, or the web. Same account, same data, everywhere.
         </p>
       </div>
 
@@ -66,8 +66,8 @@ export default function DownloadPage() {
         </Card>
       </div>
 
-      {/* Mobile + Web + Extension */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto mb-16">
+      {/* Mobile + Web */}
+      <div className="grid gap-4 sm:grid-cols-2 max-w-3xl mx-auto mb-16">
         <Card className="hover:border-primary/40 hover:shadow-md transition-all">
           <CardContent className="p-6 space-y-4">
             <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10">
@@ -86,21 +86,6 @@ export default function DownloadPage() {
         <Card className="hover:border-primary/40 hover:shadow-md transition-all">
           <CardContent className="p-6 space-y-4">
             <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10">
-              <Smartphone className="h-5 w-5" />
-            </div>
-            <div>
-              <h3 className="font-semibold">Android</h3>
-              <p className="text-xs text-muted-foreground">Google Play</p>
-            </div>
-            <Button asChild variant="outline" className="w-full">
-              <a href="https://play.google.com/store/apps/details?id=com.noticomax">Google Play</a>
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card className="hover:border-primary/40 hover:shadow-md transition-all">
-          <CardContent className="p-6 space-y-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10">
               <Globe className="h-5 w-5" />
             </div>
             <div>
@@ -109,21 +94,6 @@ export default function DownloadPage() {
             </div>
             <Button asChild variant="outline" className="w-full">
               <a href="https://app.noticomax.com">Open web app</a>
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card className="hover:border-primary/40 hover:shadow-md transition-all">
-          <CardContent className="p-6 space-y-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10">
-              <Chrome className="h-5 w-5" />
-            </div>
-            <div>
-              <h3 className="font-semibold">Browser extension</h3>
-              <p className="text-xs text-muted-foreground">Chrome & Firefox · clip to app</p>
-            </div>
-            <Button asChild variant="outline" className="w-full">
-              <a href="https://app.noticomax.com/extension">Get extension</a>
             </Button>
           </CardContent>
         </Card>
@@ -174,8 +144,10 @@ curl https://app.noticomax.com/api/download/win?format=json`}</code>
         </p>
       </div>
 
-      <div className="text-center mt-12">
-        <Badge variant="outline" className="text-xs">Linux: coming soon — Snap & AppImage</Badge>
+      <div className="text-center mt-12 flex flex-wrap justify-center gap-2">
+        <Badge variant="outline" className="text-xs">Android — coming soon</Badge>
+        <Badge variant="outline" className="text-xs">Browser extension — coming soon</Badge>
+        <Badge variant="outline" className="text-xs">Linux — coming soon</Badge>
       </div>
     </div>
   );
