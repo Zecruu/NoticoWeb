@@ -52,7 +52,6 @@ export default function LandingPage() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden border-b">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,theme(colors.primary/8%),transparent_60%)]" />
         <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
           <div className="flex flex-col items-center text-center space-y-8">
             <div className="flex items-center gap-3">
