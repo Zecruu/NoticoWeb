@@ -319,7 +319,7 @@ function Pricing() {
         <div className="text-center space-y-3 max-w-2xl mx-auto mb-12">
           <Badge variant="secondary" className="rounded-full">Pricing</Badge>
           <h2 className="text-3xl font-bold sm:text-4xl tracking-tight">
-            Free forever. Pro from <span className="text-foreground">$0.99/mo</span>.
+            Free forever. Pro from <span className="text-foreground">$2.99/mo</span>.
           </h2>
           <p className="text-muted-foreground md:text-lg">
             Start local. Add cloud sync when you want it on more than one device.
@@ -360,7 +360,7 @@ function Pricing() {
                 <p className="text-sm text-muted-foreground">Sync everywhere. No ads.</p>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold">$0.99</span>
+                <span className="text-4xl font-bold">$2.99</span>
                 <span className="text-muted-foreground">/month</span>
               </div>
               <Button asChild className="w-full">
@@ -374,9 +374,7 @@ function Pricing() {
               </ul>
               <div className="border-t pt-4 space-y-2 text-sm">
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">Storage</p>
-                <div className="flex justify-between"><span>5 GB</span><span className="font-medium">$0.99/mo</span></div>
-                <div className="flex justify-between"><span>50 GB</span><span className="font-medium">$2.99/mo</span></div>
-                <div className="flex justify-between"><span>200 GB</span><span className="font-medium">$5.99/mo</span></div>
+                <div className="flex justify-between"><span>5 GB included</span><span className="font-medium">$2.99/mo</span></div>
               </div>
             </CardContent>
           </Card>
