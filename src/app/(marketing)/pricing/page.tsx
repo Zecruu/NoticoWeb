@@ -1,32 +1,19 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, X } from "lucide-react";
+import { SubscriptionPlanCards } from "@/components/subscription-plans";
 
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "NoticoMax pricing. Free for local use, Pro from $2.99/mo for cloud sync, Family from $5/mo for up to 5 people.",
+    "Compare NoticoMax Free, Plus, Platinum, and MAXXED plans for Lyte assistance and online sync.",
 };
 
 const compare = [
-  { name: "Notes, bookmarks, reminders, calendar, locations, passwords, flashcards", free: true, pro: true, family: true },
-  { name: "Household budget + goals", free: true, pro: true, family: true },
-  { name: "Fully offline (IndexedDB)", free: true, pro: true, family: true },
-  { name: "100 MB local storage", free: true, pro: true, family: true },
-  { name: "Apple Sign-in + biometric lock", free: true, pro: true, family: true },
-  { name: "Mobile ads removed", free: false, pro: true, family: true },
-  { name: "Cloud sync across Windows, macOS, iOS, and web", free: false, pro: true, family: true },
-  { name: "Web app access", free: false, pro: true, family: true },
-  { name: "PWA share target", free: false, pro: true, family: true },
-  { name: "Claude Code + Codex CLI skill sync", free: false, pro: true, family: true },
-  { name: "Public sharing (notes, quizzes)", free: false, pro: true, family: true },
-  { name: "API access", free: false, pro: true, family: true },
-  { name: "Households + join codes", free: false, pro: false, family: true },
-  { name: "Per-folder sharing with member-level perms", free: false, pro: false, family: true },
-  { name: "Shared family budget + locations", free: false, pro: false, family: true },
-  { name: "Up to 5 seats (+$1/mo per extra)", free: false, pro: false, family: true },
+  { name: "Monthly price", free: "$0", plus: "$5.99", platinum: "$9.99", maxxed: "$34.99" },
+  { name: "Lyte chats per month", free: "—", plus: "1,000", platinum: "2,000", maxxed: "10,000" },
+  { name: "Live web lookups per month", free: "—", plus: "25", platinum: "50", maxxed: "250" },
+  { name: "Online sync", free: "—", plus: "Included", platinum: "Included", maxxed: "Included" },
+  { name: "Local-first productivity tools", free: "Included", plus: "Included", platinum: "Included", maxxed: "Included" },
 ];
 
 export default function PricingPage() {
@@ -35,118 +22,39 @@ export default function PricingPage() {
       <div className="text-center space-y-4 mb-14">
         <Badge variant="secondary" className="rounded-full">Pricing</Badge>
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Free forever. Upgrade when it's worth it.
+          Choose how much help you want from Lyte.
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Everything works locally on the Free plan. Pay only when you want cloud sync,
-          household sharing, or more storage.
+          Start with local tools for free. Paid plans add online sync and a monthly
+          allowance for Lyte chats and live web research.
         </p>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-3 max-w-5xl mx-auto mb-20">
-        {/* FREE */}
-        <Card className="hover:border-primary/40 hover:shadow-md transition-all">
-          <CardContent className="p-7 space-y-6">
-            <div className="space-y-1">
-              <h2 className="text-xl font-bold">Free</h2>
-              <p className="text-sm text-muted-foreground">Local-only, all features.</p>
-            </div>
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-bold">$0</span>
-              <span className="text-muted-foreground">/month</span>
-            </div>
-            <Button asChild variant="outline" className="w-full" size="lg">
-              <a href="https://app.noticomax.com/api/download/win">Download free</a>
-            </Button>
-            <ul className="space-y-2.5 text-sm">
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Every feature, single device</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> 100 MB local storage</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Mobile ads (none on desktop / web)</li>
-              <li className="flex gap-2 text-muted-foreground"><X className="h-4 w-4 shrink-0 mt-0.5" /> No cloud sync</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        {/* PRO */}
-        <Card className="hover:border-primary/40 hover:shadow-md transition-all">
-          <CardContent className="p-7 space-y-6">
-            <div className="space-y-1">
-              <h2 className="text-xl font-bold">Pro</h2>
-              <p className="text-sm text-muted-foreground">Sync + no ads.</p>
-            </div>
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-bold">$2.99</span>
-              <span className="text-muted-foreground">/month</span>
-            </div>
-            <Button asChild className="w-full" size="lg">
-              <a href="https://app.noticomax.com/api/download/win">Get Pro</a>
-            </Button>
-            <ul className="space-y-2.5 text-sm">
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Cloud sync across all platforms</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> No ads, anywhere</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Sharing + API access</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Claude Code skill sync</li>
-            </ul>
-            <div className="border-t pt-4 space-y-2 text-sm">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Storage</p>
-              <div className="flex justify-between"><span>5 GB included</span><span className="font-medium">$2.99/mo</span></div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* FAMILY */}
-        <Card className="border-primary shadow-md relative">
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-            <Badge className="px-3">Most popular</Badge>
-          </div>
-          <CardContent className="p-7 space-y-6">
-            <div className="space-y-1">
-              <h2 className="text-xl font-bold">Family</h2>
-              <p className="text-sm text-muted-foreground">5 people, shared everything.</p>
-            </div>
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-bold">$5</span>
-              <span className="text-muted-foreground">/month</span>
-            </div>
-            <Button asChild className="w-full" size="lg">
-              <a href="https://app.noticomax.com/api/download/win">Start Family Plan</a>
-            </Button>
-            <ul className="space-y-2.5 text-sm">
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Everything in Pro, ×5 people</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Households + join codes</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Per-folder permissions</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Shared budget, locations, folders</li>
-              <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Extra seats: <strong>$1/mo</strong></li>
-            </ul>
-            <div className="border-t pt-4 space-y-2 text-sm">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Family storage</p>
-              <div className="flex justify-between"><span>20 GB</span><span className="font-medium">$2.99/mo</span></div>
-              <div className="flex justify-between"><span>100 GB</span><span className="font-medium">$4.99/mo</span></div>
-              <div className="flex justify-between"><span>500 GB</span><span className="font-medium">$14.99/mo</span></div>
-            </div>
-          </CardContent>
-        </Card>
+      <div className="mb-20">
+        <SubscriptionPlanCards />
       </div>
 
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold text-center mb-8">Feature comparison</h2>
-        <div className="rounded-xl border overflow-hidden">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto rounded-xl border">
+          <table className="min-w-[720px] w-full text-sm">
             <thead>
               <tr className="bg-muted/40">
                 <th className="text-left p-4 font-medium">Feature</th>
                 <th className="text-center p-4 font-medium w-24">Free</th>
-                <th className="text-center p-4 font-medium w-24">Pro</th>
-                <th className="text-center p-4 font-medium w-24">Family</th>
+                <th className="text-center p-4 font-medium w-28">Plus</th>
+                <th className="text-center p-4 font-medium w-28">Platinum</th>
+                <th className="text-center p-4 font-medium w-28">MAXXED</th>
               </tr>
             </thead>
             <tbody>
               {compare.map((row) => (
                 <tr key={row.name} className="border-t hover:bg-muted/30 transition-colors">
                   <td className="p-4">{row.name}</td>
-                  <td className="p-4 text-center">{row.free ? <Check className="h-4 w-4 text-green-500 mx-auto" /> : <X className="h-4 w-4 text-muted-foreground/40 mx-auto" />}</td>
-                  <td className="p-4 text-center">{row.pro ? <Check className="h-4 w-4 text-green-500 mx-auto" /> : <X className="h-4 w-4 text-muted-foreground/40 mx-auto" />}</td>
-                  <td className="p-4 text-center">{row.family ? <Check className="h-4 w-4 text-green-500 mx-auto" /> : <X className="h-4 w-4 text-muted-foreground/40 mx-auto" />}</td>
+                  <td className="p-4 text-center text-muted-foreground">{row.free}</td>
+                  <td className="p-4 text-center">{row.plus}</td>
+                  <td className="p-4 text-center">{row.platinum}</td>
+                  <td className="p-4 text-center">{row.maxxed}</td>
                 </tr>
               ))}
             </tbody>

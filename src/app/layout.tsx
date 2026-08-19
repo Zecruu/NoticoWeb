@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | NoticoMax",
   },
   description:
-    "Notes, bookmarks, reminders, locations, passwords, a household budget, and shared family folders — fully offline, synced across Windows, macOS, iOS, Android, web, and your browser.",
+    "Notes, bookmarks, reminders, locations, passwords, a household budget, and Lyte assistance — local-first with optional sync across Windows, macOS, iOS, and web.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     siteName: "NoticoMax",
     title: "NoticoMax — One app for notes, money, and life admin",
     description:
-      "Six platforms, fully offline, one account. Capture notes, budget your month, share folders with your household — replace 3-4 apps with one.",
+      "Local-first notes, reminders, budgets, and Lyte assistance across Windows, macOS, iOS, and web.",
     images: [{ url: "/logo.png", width: 512, height: 512, alt: "NoticoMax" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "NoticoMax — One app for notes, money, and life admin",
-    description: "Six platforms, fully offline, one account. Replace 3-4 apps with one.",
+    description: "Local-first notes, reminders, budgets, and Lyte assistance across your devices.",
     images: ["/logo.png"],
   },
 };

@@ -13,7 +13,7 @@ export function Footer() {
               <span className="font-semibold">NoticoMax</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
-              One app for notes, money, and life admin. Six platforms, fully offline, one account.
+              One app for notes, money, and life admin. Local-first, with optional sync and Lyte.
             </p>
           </div>
 
@@ -42,8 +42,8 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-semibold">Legal</h3>
             <div className="flex flex-col gap-2">
-              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy</Link>
-              <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms</Link>
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Use</Link>
             </div>
           </div>
         </div>

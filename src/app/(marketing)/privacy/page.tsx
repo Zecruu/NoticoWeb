@@ -15,6 +15,8 @@ const sections = [
       "Content you choose to save in Notico Max, such as notes, URLs, reminders, folders, tags, and shared note data.",
       "Technical information needed to operate the service, such as app version, device or browser information, error logs, and timestamps.",
       "Payment or subscription status information from the App Store or payment provider. Notico Max does not store full payment card numbers.",
+      "Lyte prompts, relevant conversation context, and profile preferences you choose to provide when you use the assistant.",
+      "Usage information such as Lyte chat and live lookup counts needed to enforce plan allowances and prevent abuse.",
     ],
   },
   {
@@ -23,6 +25,7 @@ const sections = [
       "To provide Notico Max features, including saving notes, syncing data, reminders, search, and sharing.",
       "To authenticate accounts, protect the service, troubleshoot bugs, and respond to support requests.",
       "To manage subscriptions, plan access, and service communications related to your account.",
+      "To provide Lyte responses, live web research, requested actions, and personalized suggestions based on preferences you save.",
       "To improve reliability, performance, and user experience.",
     ],
   },
@@ -31,6 +34,7 @@ const sections = [
     body: [
       "We do not sell your personal information.",
       "We may share information with service providers that help operate Notico Max, such as hosting, database, analytics, support, app distribution, and payment services.",
+      "When you use Lyte, the prompt and limited context needed to answer it may be processed by AI, search, or mapping providers. Notico Max does not intentionally add password-vault entries or payment card details to Lyte context.",
       "We may disclose information if required by law, to protect users, or to prevent fraud or abuse.",
       "If you create a public share link, the content included in that share link may be accessible to people who have the link.",
     ],
@@ -78,7 +82,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </p>
         <h1 className="text-4xl font-bold tracking-tight">Notico Max Privacy Policy</h1>
-        <p className="text-muted-foreground">Effective date: May 7, 2026</p>
+        <p className="text-muted-foreground">Effective date: August 19, 2026</p>
         <p className="text-lg text-muted-foreground">
           This Privacy Policy explains how Notico Max collects, uses, and
           protects information when you use the Notico Max app, website, and

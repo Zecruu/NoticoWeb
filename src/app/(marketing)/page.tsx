@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SubscriptionPlanCards } from "@/components/subscription-plans";
 import {
   Download,
   StickyNote,
@@ -130,7 +131,7 @@ export default function LandingPage() {
           <Badge variant="secondary" className="rounded-full">Capture & organize</Badge>
           <div className="grid gap-6 md:grid-cols-2 md:items-end">
             <h2 className="text-3xl font-bold sm:text-4xl tracking-tight">
-              Everything you'd otherwise scatter across seven apps.
+              Everything you&apos;d otherwise scatter across seven apps.
             </h2>
             <p className="text-muted-foreground md:text-lg">
               Notes, links, reminders, a calendar, locations, passwords, flashcards.
@@ -163,11 +164,11 @@ export default function LandingPage() {
           <div className="space-y-6">
             <Badge variant="secondary" className="rounded-full">Money & goals</Badge>
             <h2 className="text-3xl font-bold sm:text-4xl tracking-tight">
-              A budget that doesn't make you open a separate app.
+              A budget that doesn&apos;t make you open a separate app.
             </h2>
             <p className="text-muted-foreground md:text-lg leading-relaxed">
               Categories, monthly limits, transactions. Per-month limit overrides for
-              the months that aren't normal. Scroll into future months and plan ahead.
+              the months that aren&apos;t normal. Scroll into future months and plan ahead.
               See an all-time summary or last month at a glance.
             </p>
             <ul className="space-y-2.5 text-sm">
@@ -195,7 +196,7 @@ export default function LandingPage() {
               household-scoped content with one toggle.
             </p>
             <ul className="space-y-2.5 text-sm">
-              <li className="flex gap-2"><Users className="h-4 w-4 text-foreground shrink-0 mt-0.5" /> Up to 5 seats included on Family Plan — extras at $1/mo each</li>
+              <li className="flex gap-2"><Users className="h-4 w-4 text-foreground shrink-0 mt-0.5" /> Invite household members with a simple join code</li>
               <li className="flex gap-2"><FolderOpen className="h-4 w-4 text-foreground shrink-0 mt-0.5" /> Per-folder, per-member permissions (everyone or select)</li>
               <li className="flex gap-2"><Wallet className="h-4 w-4 text-foreground shrink-0 mt-0.5" /> Shared family budget — roommates and partners both update it</li>
               <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Existing data stays yours — just attach a household to share it</li>
@@ -216,7 +217,7 @@ export default function LandingPage() {
               Back up your <code className="font-mono text-foreground bg-background px-1.5 py-0.5 rounded">/skills</code> and{" "}
               <code className="font-mono text-foreground bg-background px-1.5 py-0.5 rounded">/prompts</code> to the cloud and pull them onto a new
               machine with one command. Plus a PWA share target and an env-var vault
-              that doesn't pretend developers aren't users.
+              that doesn&apos;t pretend developers aren&apos;t users.
             </p>
             <div className="flex flex-wrap gap-2 pt-1">
               <Badge variant="outline" className="gap-1.5 py-1.5 px-3"><Terminal className="h-3.5 w-3.5" /> Claude Code + Codex CLI</Badge>
@@ -233,7 +234,7 @@ export default function LandingPage() {
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <Badge variant="secondary" className="rounded-full">Quality bar</Badge>
             <h2 className="text-3xl font-bold sm:text-4xl tracking-tight">
-              Built like you'll trust it with the only copy.
+              Built like you&apos;ll trust it with the only copy.
             </h2>
             <p className="text-muted-foreground md:text-lg">
               The boring engineering work most apps skip.
@@ -275,7 +276,7 @@ export default function LandingPage() {
             Stop tab-juggling. Start <span className="text-muted-foreground line-through">organizing</span> living.
           </h2>
           <p className="text-muted-foreground md:text-lg">
-            Free plan covers everything local. Upgrade when you want it on more than one device.
+            Start local. Upgrade when you want Lyte and online sync across your devices.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="gap-2 h-11 px-6">
@@ -319,98 +320,15 @@ function Pricing() {
         <div className="text-center space-y-3 max-w-2xl mx-auto mb-12">
           <Badge variant="secondary" className="rounded-full">Pricing</Badge>
           <h2 className="text-3xl font-bold sm:text-4xl tracking-tight">
-            Free forever. Pro from <span className="text-foreground">$2.99/mo</span>.
+            Start free. Add Lyte and sync when you need them.
           </h2>
           <p className="text-muted-foreground md:text-lg">
-            Start local. Add cloud sync when you want it on more than one device.
-            Add a household when one user isn't enough.
+            Choose the monthly assistant capacity that fits how often you plan, research,
+            and organize with Lyte.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3 max-w-5xl mx-auto">
-          {/* FREE */}
-          <Card className="hover:border-primary/40 hover:shadow-md transition-all">
-            <CardContent className="p-7 space-y-6">
-              <div className="space-y-1">
-                <h3 className="text-xl font-bold">Free</h3>
-                <p className="text-sm text-muted-foreground">Everything, just local.</p>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold">$0</span>
-                <span className="text-muted-foreground">/month</span>
-              </div>
-              <Button asChild variant="outline" className="w-full">
-                <a href="https://app.noticomax.com/api/download/win">Download free</a>
-              </Button>
-              <ul className="space-y-2.5 text-sm">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Every feature, on a single device</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> 100 MB local storage</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Fully offline — never blocks you</li>
-                <li className="flex gap-2 text-muted-foreground"><span className="h-4 w-4 shrink-0 mt-0.5 text-center">·</span> Ads on mobile only — none on desktop or web</li>
-                <li className="flex gap-2 text-muted-foreground"><span className="h-4 w-4 shrink-0 mt-0.5 text-center">·</span> No cloud sync</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          {/* PRO */}
-          <Card className="hover:border-primary/40 hover:shadow-md transition-all">
-            <CardContent className="p-7 space-y-6">
-              <div className="space-y-1">
-                <h3 className="text-xl font-bold">Pro</h3>
-                <p className="text-sm text-muted-foreground">Sync everywhere. No ads.</p>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold">$2.99</span>
-                <span className="text-muted-foreground">/month</span>
-              </div>
-              <Button asChild className="w-full">
-                <a href="https://app.noticomax.com/api/download/win">Get Pro</a>
-              </Button>
-              <ul className="space-y-2.5 text-sm">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Cloud sync across Windows, macOS, iOS, and web</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> No ads, anywhere</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Sharing + API access</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Claude Code + Codex CLI skill sync</li>
-              </ul>
-              <div className="border-t pt-4 space-y-2 text-sm">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">Storage</p>
-                <div className="flex justify-between"><span>5 GB included</span><span className="font-medium">$2.99/mo</span></div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* FAMILY — anchored */}
-          <Card className="border-primary shadow-md relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <Badge className="px-3">Most popular</Badge>
-            </div>
-            <CardContent className="p-7 space-y-6">
-              <div className="space-y-1">
-                <h3 className="text-xl font-bold">Family</h3>
-                <p className="text-sm text-muted-foreground">Up to 5 people, shared everything.</p>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold">$5</span>
-                <span className="text-muted-foreground">/month</span>
-              </div>
-              <Button asChild className="w-full">
-                <a href="https://app.noticomax.com/api/download/win">Start Family Plan</a>
-              </Button>
-              <ul className="space-y-2.5 text-sm">
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Everything in Pro, for up to 5 people</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Household + per-folder sharing</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Shared budget, locations, folders</li>
-                <li className="flex gap-2"><Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" /> Extra seats: <strong>$1/mo each</strong></li>
-              </ul>
-              <div className="border-t pt-4 space-y-2 text-sm">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">Family storage</p>
-                <div className="flex justify-between"><span>20 GB</span><span className="font-medium">$2.99/mo</span></div>
-                <div className="flex justify-between"><span>100 GB</span><span className="font-medium">$4.99/mo</span></div>
-                <div className="flex justify-between"><span>500 GB</span><span className="font-medium">$14.99/mo</span></div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <SubscriptionPlanCards />
 
         <p className="text-center text-xs text-muted-foreground mt-8">
           Have a legacy Lifetime Pro key? It still works — sign in and paste it under Settings → License.
